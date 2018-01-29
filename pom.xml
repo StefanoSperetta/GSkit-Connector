@@ -1,0 +1,87 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>SDPS</groupId>
+  <artifactId>GSkit-Connector</artifactId>
+  <version>0.1</version>
+  <packaging>jar</packaging>
+
+  <name>SDPS connector for GSkit</name>
+  <url>https://github.com/StefanoSperetta/GSkit-Connector</url>
+
+  <properties>
+    <jdkLevel>1.8</jdkLevel>
+    <requiredMavenVersion>[2.1,)</requiredMavenVersion>
+    <main.basedir>${project.basedir}</main.basedir>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+	<maven.compiler.source>1.8</maven.compiler.source>
+  	<maven.compiler.target>1.8</maven.compiler.target>
+    <avro.version>1.8.2</avro.version>
+  </properties>
+
+  <description>
+    A connector library to connect to ISIS GSkit Ground Station
+  </description>
+
+  <developers>
+    <developer>
+      <id>StefanoSperetta</id>
+      <name>Stefano Speretta</name>
+      <email>s.speretta@tudelft.nl</email>
+      <url>https://github.com/StefanoSperetta</url>
+    </developer>
+  </developers>
+
+  <build>
+    <plugins>
+      
+      <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-shade-plugin</artifactId>
+		<version>3.1.0</version>
+		<executions>
+			<execution>
+				<goals>
+					<goal>shade</goal>
+				</goals>
+				<configuration>
+					<shadedArtifactAttached>true</shadedArtifactAttached>
+					<transformers>
+						<transformer implementation=
+						  "org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+							<mainClass>SDPS.Client.GSkit</mainClass>
+					</transformer>
+				</transformers>
+			</configuration>
+			</execution>
+		</executions>
+      </plugin>
+	  
+    </plugins>
+  </build>
+  
+  <dependencies>
+  	<dependency>
+  		<groupId>org.apache.logging.log4j</groupId>
+  		<artifactId>log4j-core</artifactId>
+  		<version>2.10.0</version>
+  		<scope>runtime</scope>
+  	</dependency>
+  	<dependency>
+		<groupId>org.slf4j</groupId>
+		<artifactId>slf4j-log4j12</artifactId>
+		<version>1.7.25</version>
+		<scope>runtime</scope>
+	</dependency>
+	<dependency>
+  		<groupId>io.kaitai</groupId>
+  		<artifactId>kaitai-struct-runtime</artifactId>
+  		<version>0.7</version>
+  		<scope>runtime</scope>
+  	</dependency>
+  </dependencies>
+  
+</project>
