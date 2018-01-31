@@ -16,7 +16,7 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package SDPS.GSkit;
+package SDPS.Client.GSkit;
 
 //This is a generated file! Please edit source .ksy file and use kaitai-struct-compiler to rebuild
 
@@ -55,36 +55,33 @@ public class RxFrame extends KaitaiStruct {
      _read();
  }
  private void _read() {
-     this.command = this._io.readU1();
-     this.size = this._io.readU4le();
      this.datarate = this._io.readU4le();
      this.modulationsize = this._io.readU1();
      this.modulation = new String(this._io.readBytes(modulationsize()), Charset.forName("UTF-8"));
      this.rssi = this._io.readF8le();
-     this.rrequency = this._io.readF8le();
+     this.frequency = this._io.readF8le();
      this.datasize = this._io.readU2le();
      this.data = this._io.readBytes(datasize());
+     this.timestamp = this._io.readU4le();
  }
- private int command;
- private long size;
  private long datarate;
  private int modulationsize;
  private String modulation;
  private double rssi;
- private double rrequency;
+ private double frequency;
  private int datasize;
  private byte[] data;
+ private long timestamp;
  private RxFrame _root;
  private KaitaiStruct _parent;
- public int command() { return command; }
- public long size() { return size; }
  public long datarate() { return datarate; }
  public int modulationsize() { return modulationsize; }
  public String modulation() { return modulation; }
  public double rssi() { return rssi; }
- public double rrequency() { return rrequency; }
+ public double frequency() { return frequency; }
  public int datasize() { return datasize; }
  public byte[] data() { return data; }
+ public long timestamp() { return timestamp; }
  public RxFrame _root() { return _root; }
  public KaitaiStruct _parent() { return _parent; }
 }
