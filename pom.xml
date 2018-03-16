@@ -80,13 +80,13 @@
   		<groupId>io.kaitai</groupId>
   		<artifactId>kaitai-struct-runtime</artifactId>
   		<version>0.7</version>
-  		<scope>runtime</scope>
+  		<scope>compile</scope>
   	</dependency>
   	<dependency>
   		<groupId>SDPS</groupId>
   		<artifactId>SDTL</artifactId>
   		<version>0.1</version>
-  		<scope>runtime</scope>
+  		<scope>compile</scope>
   	</dependency>
   </dependencies>
   
